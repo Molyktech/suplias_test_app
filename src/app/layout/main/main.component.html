@@ -1,0 +1,207 @@
+<div>
+  <div class="nested-grid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card ">
+          <h3>Buyer Info</h3>
+          <img src="../../../assets/img/undraw_profile_pic_ic5t.png" />
+          <div class="buyer-text">
+            <p class="nav-header">person</p>
+            <p class="text">{{ buyerData.person }}</p>
+            <p class="text">{{ buyerData.phone }}</p>
+          </div>
+          <div class="store">
+            <p class="nav-header">store</p>
+            <p class="text">
+              {{ buyerData.name }} + {{ buyerData.store_type?.name }}
+            </p>
+          </div>
+          <div class="billing-address">
+            <p class="nav-header">billing address</p>
+            <p class="text address">{{ buyerData.address }}</p>
+          </div>
+          <div class="wallet">
+            <p class="nav-header">wallet</p>
+            <p class="text text-success">
+              &#8358;{{ buyerData.ledgers[0].balance }}
+            </p>
+          </div>
+          <div class="star-rating">
+            <p class="nav-header">rating</p>
+            <div>
+              <ngb-rating [(rate)]="buyerData.average_rating" max="5" [readonly]="true">
+                <ng-template let-fill="fill" let-index="index">
+                  <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+              </ngb-rating>
+              <span class="nav-header ml-2">{{
+                buyerData.average_rating | number
+              }}</span>
+            </div>
+          </div>
+
+          <div class="date">
+            <p class="nav-header">created on</p>
+            <p class="text">{{ buyerData.ledgers[1].created | date }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <h3>Overview</h3>
+
+              <div class="tabs">
+                <input type="radio" id="tab1" name="tab-control" checked />
+                <input type="radio" id="tab2" name="tab-control" checked />
+                <input type="radio" id="tab3" name="tab-control" checked />
+                <div class="flex-header">
+                  <ul>
+                    <li title="Orders">
+                      <label for="tab1" role="button">
+                        <br /><span>Orders</span>
+                        <span class="badge badge-secondary">2</span>
+                      </label>
+                    </li>
+                    <li title="Weekly Order">
+                      <label for="tab1" role="button">
+                        <span>Weekly Order </span>
+                        <span class="badge badge-warning">4</span>
+                      </label>
+                    </li>
+                    <li title="In Cart">
+                      <label for="tab1" role="button">
+                        <br /><span>In Cart</span>
+                      </label>
+                    </li>
+                  </ul>
+                  <div class="actions">
+                    <button class="filter-btn">
+                      <span><i class="fas fa-filter bg-secondary"></i></span>
+                      filter
+                    </button>
+                    <input type="text" class="input" placeholder="&#xF002; Search Orders" />
+                  </div>
+                </div>
+
+                <div class="slider">
+                  <div class="indicator"></div>
+                </div>
+                <div class="content">
+                  <section>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Status</th>
+                          <th scope="col">Order</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Items</th>
+                          <th scope="col">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let order of orders; index as i">
+                          <th scope="row" class="text-center">
+                            <div class="ball" [ngClass]="{
+                                'bg-warning': order.tag === 'pending',
+                                'bg-success': order.tag === 'completed'
+                              }"></div>
+                          </th>
+                          <td>
+                            {{ order.ref }}
+                          </td>
+                          <td>{{ order.created | date }}</td>
+                          <td>4</td>
+                          <td>{{ order.amount }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 mt-4">
+            <div>
+              <div class="card mt-4">
+                <div class="card-body">
+                  <h3 class="card-title">Order #{{ orders[1].ref }}</h3>
+                  <table class="table borderless mt-4" border="0">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="nav-header">date</th>
+                        <th scope="col" class="nav-header">status</th>
+                        <th scope="col" class="nav-header">distributor</th>
+                        <th scope="col" class="nav-header">total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          {{ orders[1].created | date }}
+                        </th>
+                        <td>
+                          <div class="green-bg">
+                            {{ orders[1].tag }}
+                          </div>
+                        </td>
+
+                        <td>{{ orders[1].seller.name }}</td>
+                        <td>
+                          <strong>&#8358;{{ orders[1].amount }}</strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <table class="table border-off mt-4" border="0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Product</th>
+
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of orderItems">
+                        <th scope="row">
+                          <img src="{{ item.product.upload.path }}" alt="product" class="mr-2" />
+                          <span class="text-normal"> {{ item.product?.name }}</span>
+                        </th>
+
+                        <td></td>
+                        <td></td>
+
+                        <td>{{ item.quantity | number }}</td>
+                        <td>
+                          <strong>&#8358;{{ item.amount | number }}</strong>
+                        </td>
+
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td></td>
+
+                        <td></td>
+                        <td></td>
+                        <td>Total-</td>
+                        <td><strong>{{ getTotalAmount(orderItems) | number}}</strong></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+
+                  <button class="purple">Edit Order</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

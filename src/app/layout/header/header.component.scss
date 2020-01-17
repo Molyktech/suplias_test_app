@@ -1,0 +1,28 @@
+.flex-header {
+  margin: 20px;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #c4cad0;
+
+}
+
+.flex-header:nth-last-child(1) {
+  font-size: 30px;
+}
+
+.flex-right {
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+img {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 5px;
+}
+
+.small-icon {
+  font-size: 20px;
+}

@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+// grid styles for layout
+
+
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400';
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 4fr;
+  font-family: 'Montserrat';
+  background-color: #f9feff;
+
+  color: #212121;
+
+}
+
+
+.sidebar {
+  grid-column: 1;
+  grid-row: 1;
+  grid-row-end: 4;
+
+
+
+}
+
+.header {
+  grid-column: 2/4;
+  grid-row: 1;
+
+}
+
+.main {
+  grid-column: 2/4;
+  grid-row: 2;
+}

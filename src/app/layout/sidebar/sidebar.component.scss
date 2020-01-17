@@ -1,0 +1,110 @@
+.card {
+  background-color: #fff;
+  padding: 10px;
+  height: 1160px;
+  margin-bottom: 0;
+
+
+}
+
+.header {
+  background: #e5ebf1;
+  border-radius: 10px;
+  padding: .7em;
+  margin: 10px;
+
+}
+
+.header-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10px;
+
+}
+
+.logo {
+
+  border-radius: 50%;
+  padding: 17px;
+  text-align: center;
+  background-color: #3b54ec;
+  color: #fff;
+
+}
+
+
+
+.c-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 10px;
+  margin: 15px 0 0 10px;
+}
+
+p.bold {
+  color: #171c34;
+  font-size: 1.2em;
+  font-weight: 500;
+
+}
+
+p.light {
+  color: #9da5b0;
+  font-weight: 200;
+  font-size: .9em;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 10px 0;
+
+}
+
+.active {
+  color: #3b54ec;
+}
+
+.active .circle {
+  border: 1px solid #3b54ec;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  border: 1px solid;
+  margin-right: 10px;
+}
+
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  /* Footer height */
+}
+
+#footer .button-base {
+  width: calc(100% - 9px);
+  border-radius: 15px;
+  color: #3b54ec;
+  background-color: #e0e4fffa;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 1.1em;
+
+}
