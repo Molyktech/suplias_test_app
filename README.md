@@ -1,6 +1,17 @@
 # App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+This project is a test app to verify my ability to replicate a designers design. it was done with angular 8
+
+## Installation
+
+Use the package manager npm to install.
+
+```bash
+git clone https://github.com/Molyktech/suplias_test_app.git
+cd into app
+npm install
+
+```
 
 ## Development server
 
